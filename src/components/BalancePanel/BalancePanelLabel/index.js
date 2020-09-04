@@ -1,13 +1,13 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 
-export default function BalancePanelLabel() {
+export default function BalancePanelLabel({ currentBalance }) {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>Saldo Atual</Text>
-      <Text style={styles.value}>$2.102,45</Text>
+      <Text style={styles.value}>{currentBalance}</Text>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
   value: {
     fontSize: 22
   }
-});
+})

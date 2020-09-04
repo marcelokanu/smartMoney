@@ -1,6 +1,9 @@
 /**
  * @format
  */
+if (__DEV__) {
+  import('./config/ReactotronConfig.js')
+}
 
 import { AppRegistry } from 'react-native'
 import App from './src'

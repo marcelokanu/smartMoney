@@ -4,9 +4,10 @@ import { View, StyleSheet, TextInput, Button } from 'react-native'
 import BalanceLabel from '../../components/BalanceLabel'
 
 export default function NewEntry({ navigation }) {
+  const currentBalance = 2064.35
   return (
     <View style={styles.container}>
-      <BalanceLabel />
+      <BalanceLabel currentBalance={currentBalance} />
       <View>
         <TextInput style={styles.input} />
         <TextInput style={styles.input} />
