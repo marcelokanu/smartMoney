@@ -1,7 +1,20 @@
 import { Alert } from 'react-native'
+
 import { getRealm } from './Realm'
 
-export const saveEntry = async () => {
+import getUUID from '../services/UUID'
+
+export const getEntries = async () => {
+  const realm = await getRealm()
+
+  const entries = realm.objects('Entry')
+
+  console.log('getEntries :: entries > ' + JSON.stringify(entries))
+
+  return entries
+}
+
+export const saveEntry = async (value, entry = {}) => {
   const realm = await getRealm()
 
   let data = {}
@@ -9,9 +22,9 @@ export const saveEntry = async () => {
   try {
     realm.write(() => {
       data = {
-        id: 'ABC',
-        amount: 12.4,
-        entryAt: new Date(),
+        id: value.id || entry.id || getUUID(),
+        amount: value.amount || entry.amount,
+        entryAt: value.entryAt || entry.entryAt,
         isInit: false
       }
 
