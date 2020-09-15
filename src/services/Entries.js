@@ -35,8 +35,24 @@ export const saveEntry = async (value, entry = {}) => {
     console.log({ origin: 'saveEntry', data })
   } catch (error) {
     console.error('saveEntry :: error on save object: ', JSON.stringify(data))
-    Alert.alert('Erro ao salvar os dados')
+    Alert.alert('Erro ao salvar os dados.')
   }
 
   return data
+}
+
+export const deleteEntry = async (entry) => {
+  const realm = await getRealm()
+
+  try {
+    realm.write(() => {
+      realm.delete(entry)
+    })
+  } catch (error) {
+    console.error(
+      'deleteEntry :: error on delete object: ',
+      JSON.stringify(entry)
+    )
+    Alert.alert('Erro ao excluir este lançamento.')
+  }
 }
