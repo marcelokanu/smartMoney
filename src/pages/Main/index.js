@@ -1,13 +1,13 @@
 import React from 'react'
-import { View, StyleSheet, Button } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 import BalancePanel from '../../components/BalancePanel'
 import EntrySummary from '../../components/EntrySummary'
 import EntryList from '../../components/EntryList'
 
-const Main = ({ navigation }) => {
-  const currentBalance = 2064.35
+import Colors from '../../styles/Colors'
 
+const Main = ({ navigation }) => {
   const categoriesEntry = [
     { key: '1', description: 'Alimentação', amount: '$ 200' },
     { key: '2', description: 'Combustível', amount: '$ 12' },
@@ -17,11 +17,8 @@ const Main = ({ navigation }) => {
   ]
   return (
     <View style={styles.container}>
-      <BalancePanel currentBalance={currentBalance} />
-      <Button
-        title="Adicionar"
-        onPress={() => navigation.navigate('NewEntry')}
-      />
+      <BalancePanel onNewEntryPress={() => navigation.navigate('NewEntry')} />
+
       <EntrySummary categoriesEntry={categoriesEntry} />
       <EntryList navigation={navigation} />
     </View>
@@ -31,7 +28,8 @@ const Main = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10
+
+    backgroundColor: Colors.background
   }
 })
 
