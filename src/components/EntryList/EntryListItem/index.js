@@ -69,7 +69,7 @@ export default function EntryListItem({
           </View>
         </View>
         <View style={styles.amount}>
-          <Text style={styles.amountText}>$1230</Text>
+          <Text style={styles.amountText}>{entry.amount}</Text>
         </View>
       </View>
     </TouchableOpacity>

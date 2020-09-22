@@ -3,17 +3,18 @@ import { View, StyleSheet, TextInput, Button } from 'react-native'
 
 import BalanceLabel from '../../components/BalanceLabel'
 import { saveEntry, deleteEntry } from '../../services/Entries'
+import NewEntryInput from './NewEntryInput'
+
+import Colors from '../../styles/Colors'
 
 export default function NewEntry({ navigation }) {
-  const currentBalance = 2064.35
-
   const entry = navigation.getParam('entry', {
     id: null,
     amount: '0.00',
     entryAt: new Date()
   })
 
-  const [amount, setAmount] = useState(`${entry.amount}`)
+  const [amount, setAmount] = useState(entry.amount)
 
   const isValid = () => {
     if (parseFloat(amount) !== 0) {
@@ -43,13 +44,10 @@ export default function NewEntry({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <BalanceLabel currentBalance={currentBalance} />
+      <BalanceLabel />
       <View>
-        <TextInput
-          style={styles.input}
-          onChangeText={(text) => setAmount(text)}
-          value={amount}
-        />
+        <NewEntryInput value={amount} onChangeValue={setAmount} />
+
         <TextInput style={styles.input} />
         <Button title="GPS" />
         <Button title="Camera" />
@@ -67,6 +65,7 @@ export default function NewEntry({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: Colors.background,
     padding: 10
   },
   input: {
