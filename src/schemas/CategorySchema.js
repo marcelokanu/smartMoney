@@ -4,6 +4,7 @@ const CategorySchema = {
   properties: {
     id: 'string',
     color: { type: 'string' },
+    isInit: { type: 'bool', default: false },
     isDefault: { type: 'bool', default: false },
     isCredit: { type: 'bool', default: false },
     isDebit: { type: 'bool', default: false },
