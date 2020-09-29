@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import { FlatList } from 'react-native'
+import React, { useEffect, useState } from 'react';
+import { FlatList } from 'react-native';
 
-import EntryListItem from './EntryListItem'
-import Container from '../Core/Container'
+import EntryListItem from './EntryListItem';
+import Container from '../Core/Container';
 
-import { getEntries } from '../../services/Entries'
+import { getEntries } from '../../services/Entries';
 
 export default function EntryList({ onEntryPress, onPressActionButton }) {
-  const [entries, setEntries] = useState([])
+  const [entries, setEntries] = useState([]);
 
   useEffect(() => {
     async function loadEntries() {
-      const data = await getEntries()
-      setEntries(data)
+      const data = await getEntries();
+      setEntries(data);
     }
-    loadEntries()
-    console.log('EntryList :: useEffect')
-  }, [])
+    loadEntries();
+    console.log('EntryList :: useEffect');
+  }, []);
 
   return (
     <Container
@@ -37,5 +37,5 @@ export default function EntryList({ onEntryPress, onPressActionButton }) {
         )}
       />
     </Container>
-  )
+  );
 }

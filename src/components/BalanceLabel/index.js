@@ -1,12 +1,12 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
-import LinearGradient from 'react-native-linear-gradient'
+import LinearGradient from 'react-native-linear-gradient';
 
-import Colors from '../../styles/Colors'
+import Colors from '../../styles/Colors';
 
 export default function BalanceLabel() {
-  const currentBalance = 2000.35
+  const currentBalance = 2000.35;
   return (
     <View style={styles.container}>
       <Text style={styles.label}>Saldo Atual</Text>
@@ -16,7 +16,7 @@ export default function BalanceLabel() {
         <Text style={styles.value}>{currentBalance}</Text>
       </LinearGradient>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     marginVertical: 10
   }
-})
+});

@@ -1,11 +1,11 @@
-import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-import Svg, { Rect, Circle } from 'react-native-svg'
+import Svg, { Rect, Circle } from 'react-native-svg';
 
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import Colors from '../../../styles/Colors'
+import Colors from '../../../styles/Colors';
 
 export default function EntryListItem({
   entry,
@@ -13,17 +13,16 @@ export default function EntryListItem({
   isLastItem,
   onEntryPress
 }) {
-  const bulletLineY = isFirstItem ? 25 : 0
-  const bulletLineHeight = isLastItem ? 25 : 50
-  const showBulletLine = !(isFirstItem && isLastItem)
+  const bulletLineY = isFirstItem ? 25 : 0;
+  const bulletLineHeight = isLastItem ? 25 : 50;
+  const showBulletLine = !(isFirstItem && isLastItem);
 
-  //const bulletColor = entry.category.color || Colors.white
-  const bulletColor = Colors.white
+  const bulletColor = entry.category.color || Colors.white;
 
   return (
     <TouchableOpacity
       onPress={() => {
-        onEntryPress && onEntryPress(entry)
+        onEntryPress && onEntryPress(entry);
       }}>
       <View style={styles.container}>
         <View style={styles.bullet}>
@@ -49,7 +48,10 @@ export default function EntryListItem({
         </View>
 
         <View style={styles.description}>
-          <Text style={styles.descriptionText}>asd{entry.description}</Text>
+          <Text style={styles.descriptionText}>
+            {entry.category.name}
+            {entry.description}
+          </Text>
           <View style={styles.details}>
             <Icon style={styles.detailsDateIcon} name="access-time" size={12} />
             <Text style={styles.detailsDateLabel}>
@@ -73,7 +75,7 @@ export default function EntryListItem({
         </View>
       </View>
     </TouchableOpacity>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -118,4 +120,4 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: Colors.white
   }
-})
+});

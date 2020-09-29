@@ -11,4 +11,4 @@ module.exports = {
     'prettier/prettier': 'error',
     'react-hooks/rules-of-hooks': 'error'
   }
-}
+};

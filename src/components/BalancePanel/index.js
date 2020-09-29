@@ -1,17 +1,17 @@
-import React from 'react'
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native'
+import React from 'react';
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 
-import LinearGradient from 'react-native-linear-gradient'
+import LinearGradient from 'react-native-linear-gradient';
 
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import BalancePanelLabel from './BalancePanelLabel'
-import BalancePanelChart from './BalancePanelChart'
+import BalancePanelLabel from './BalancePanelLabel';
+import BalancePanelChart from './BalancePanelChart';
 
-import Colors from '../../styles/Colors'
+import Colors from '../../styles/Colors';
 
 const BalancePanel = ({ onNewEntryPress }) => {
-  const currentBalance = 2064.35
+  const currentBalance = 2064.35;
 
   return (
     <View style={styles.container}>
@@ -25,8 +25,8 @@ const BalancePanel = ({ onNewEntryPress }) => {
         <Icon name="add" size={30} color={Colors.white} />
       </TouchableOpacity>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {},
@@ -50,5 +50,5 @@ const styles = StyleSheet.create({
   buttonText: {
     color: Colors.white
   }
-})
-export default BalancePanel
+});
+export default BalancePanel;

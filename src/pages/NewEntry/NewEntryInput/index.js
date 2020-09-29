@@ -1,25 +1,27 @@
-import React, { useState } from 'react'
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
+import React, { useState } from 'react';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-import { TextInputMask } from 'react-native-masked-text'
+import { TextInputMask } from 'react-native-masked-text';
 
-import Colors from '../../../styles/Colors'
+import Colors from '../../../styles/Colors';
 
-export default function NewEntryInput({ value, onChangeValue }) {
-  const [debit, setDebit] = useState(value < 0 ? -1 : 1)
-  const [debitPrefix, setDebitPrefix] = useState(value < 0 ? '-' : '')
+export default function NewEntryInput({ value, onChangeDebit, onChangeValue }) {
+  const [debit, setDebit] = useState(value <= 0 ? -1 : 1);
+  const [debitPrefix, setDebitPrefix] = useState(value <= 0 ? '-' : '');
 
   const onChangeDebitCredit = () => {
     if (debit < 0) {
-      setDebit(1)
-      setDebitPrefix('')
+      setDebit(1);
+      setDebitPrefix('');
+      onChangeDebit(false);
     } else {
-      setDebit(-1)
-      setDebitPrefix('-')
+      setDebit(-1);
+      setDebitPrefix('-');
+      onChangeDebit(true);
     }
 
-    onChangeValue(value * -1)
-  }
+    onChangeValue(value * -1);
+  };
 
   return (
     <View style={styles.container}>
@@ -42,11 +44,11 @@ export default function NewEntryInput({ value, onChangeValue }) {
         value={value}
         includeRawValueInChangeText={true}
         onChangeText={(maskedValue, rawValue) => {
-          onChangeValue && onChangeValue(rawValue * debit)
+          onChangeValue && onChangeValue(rawValue * debit);
         }}
       />
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -77,4 +79,4 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     paddingRight: 20
   }
-})
+});

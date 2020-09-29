@@ -1,5 +1,5 @@
-import React from 'react'
-import { View, Text, FlatList, StyleSheet } from 'react-native'
+import React from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 export default function EntrySummaryList({ categoriesEntry }) {
   return (
@@ -13,7 +13,7 @@ export default function EntrySummaryList({ categoriesEntry }) {
         )}
       />
     </View>
-  )
+  );
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

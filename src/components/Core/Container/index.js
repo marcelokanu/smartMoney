@@ -1,9 +1,9 @@
-import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import React from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import Colors from '../../../styles/Colors'
+import Colors from '../../../styles/Colors';
 
 const Container = ({
   title,
@@ -33,8 +33,8 @@ const Container = ({
         </View>
       )}
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -74,6 +74,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: Colors.white
   }
-})
+});
 
-export default Container
+export default Container;
